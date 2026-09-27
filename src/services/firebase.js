@@ -1,18 +1,14 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA6IicXDuavvJ1uYE6rRlBkfyKxp5mqeKk",
+  apiKey: process.env.VITE_FIREBASE_API_KEY || "AIzaSyDummyKeyForSecurity12345",
   authDomain: "rsvp-cloud-tracker.firebaseapp.com",
   projectId: "rsvp-cloud-tracker",
-  storageBucket: "rsvp-cloud-tracker.firebasestorage.app",
-  messagingSenderId: "102387664825",
-  appId: "1:102387664825:web:2268f0a982a16a5ffb1868",
-  measurementId: "G-WZVJ2S4RS1"
+  storageBucket: "rsvp-cloud-tracker.appspot.com",
+  messagingSenderId: "123456789012",
+  appId: "1:123456789012:web:abcdef123456"
 };
 
-// Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
