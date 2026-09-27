@@ -39,21 +39,22 @@ rsvp-cloud-tracker/
 ├── firestore.rules          # Granular database security rules
 └── .gitignore
 
-## ⚙️ Quick Local Setup
+## ⚙️ Quick Setup
 
-1. **Clone Repo:**
+1. **Install Dependencies:**
    ```bash
-   cd rsvp-cloud-tracker/frontend
+   cd frontend
+   npm install
+   ```
 
-   Install Dependencies:npm install
-   Configure Firebase: Add Firebase credentials to frontend/src/services/firebase.js
-   Run Project: npm run dev
-   Open http://localhost:5173 in browser.
+1. Configure Firebase: Add Firebase credentials to .env file or frontend/src/services/firebase.js.
+2. Run Project:npm run dev
+Open http://localhost:5173 in browser.
 
-## 🧪 Concurrency & Waitlist Verification Flow
+🧪 Concurrency & Waitlist Verification Flow
 
-Open Organizer Dashboard on Window A (Capacity: 2).
-Open Attendee RSVP Page in an Incognito window (Window B) and submit RSVPs for User 1 and User 2 with status Going.
-Observe the Going counter update from 0 to 2 instantaneously on Window A without any refresh.
-Submit an RSVP for User 3 with status Going.
-The transaction validates that maximum capacity has been saturated, sets User 3 to WAITLIST, and locks goingCount at 2
+1. Open Organizer Dashboard on Window A (Capacity: 2).
+2. Open Attendee RSVP Page in an Incognito window (Window B) and submit RSVPs for User 1 and User 2 with status Going.
+3. Observe the Going counter update from 0 to 2 instantaneously on Window A without any refresh.
+4. Submit an RSVP for User 3 with status Going.
+5. The transaction validates that maximum capacity has been saturated, sets User 3 to WAITLIST, and locks goingCount at 2.
